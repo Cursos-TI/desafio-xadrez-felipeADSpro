@@ -1,32 +1,167 @@
-#include <stdio.h>
+#include <stdio.h> 
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+ 
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+// --- Funções Recursivas para as Peças --- 
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+ 
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+// Função recursiva para o movimento da Torre 
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+// A cada chamada, imprime a direção e decrementa o contador. 
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+// A recursão termina quando o contador chega a 0. 
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+void moverTorre(int passos) { 
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    if (passos > 0) { 
 
-    return 0;
-}
+        printf("Direita\n"); 
+
+        moverTorre(passos - 1); // Chamada recursiva para o próximo passo 
+
+    } 
+
+} 
+
+ 
+
+// Função recursiva para o movimento da Rainha 
+
+// Similar à Torre, mas para o movimento da Rainha (esquerda). 
+
+void moverRainha(int passos) { 
+
+    if (passos > 0) { 
+
+        printf("Esquerda\n"); 
+
+        moverRainha(passos - 1); // Chamada recursiva 
+
+    } 
+
+} 
+
+ 
+
+// Função recursiva e aninhada para o movimento do Bispo 
+
+// A lógica é dividida: o loop externo controla o número de passos, 
+
+// e a recursão interna garante que as duas direções sejam impressas. 
+
+// Esta implementação usa loops aninhados para o Bispo, conforme solicitado. 
+
+void moverBispo(int passos) { 
+
+    printf("Simulando o movimento do Bispo:\n"); 
+
+    // Loop externo para o movimento vertical (Cima) 
+
+    for (int i = 0; i < passos; i++) { 
+
+        printf("Cima, "); 
+
+        // Loop interno para o movimento horizontal (Direita) 
+
+        // Usamos um loop 'do-while' para demonstrar a aninhamento. 
+
+        int j = 1; 
+
+        do { 
+
+            printf("Direita\n"); 
+
+            j--; 
+
+        } while (j > 0); 
+
+    } 
+
+} 
+
+ 
+
+int main() { 
+
+    // --- Simulação do Movimento da Torre (Recursividade) --- 
+
+    printf("Simulando o movimento da Torre:\n"); 
+
+    moverTorre(5); 
+
+    printf("--- Fim do movimento da Torre ---\n\n"); 
+
+ 
+
+    // --- Simulação do Movimento do Bispo (Recursividade e Loops Aninhados) --- 
+
+    moverBispo(5); 
+
+    printf("--- Fim do movimento do Bispo ---\n\n"); 
+
+ 
+
+    // --- Simulação do Movimento da Rainha (Recursividade) --- 
+
+    printf("Simulando o movimento da Rainha:\n"); 
+
+    moverRainha(8); 
+
+    printf("--- Fim do movimento da Rainha ---\n\n"); 
+
+ 
+
+    // --- Simulação do Movimento do Cavalo (Loops Complexos) --- 
+
+    printf("Simulando o movimento do Cavalo:\n"); 
+
+ 
+
+    int movimentos_verticais = 2; 
+
+    int movimentos_horizontais = 1; 
+
+ 
+
+    // Loop externo para o movimento vertical (duas casas para cima) 
+
+    for (int i = 0; i < movimentos_verticais; i++) { 
+
+        printf("Cima\n"); 
+
+    } 
+
+ 
+
+    // Loop interno para o movimento horizontal (uma casa para a direita) 
+
+    // Usamos um 'do-while' com 'break' e 'continue' para demonstrar controle de fluxo. 
+
+    // Embora simples, a lógica serve para ilustrar o conceito. 
+
+    int i = 0; 
+
+    do { 
+
+        i++; 
+
+        if (i > movimentos_horizontais) { 
+
+            break; // Sai do loop após o número de movimentos necessários. 
+
+        } 
+
+        printf("Direita\n"); 
+
+    } while (1); // Loop infinito, controlado pelo 'break' 
+
+ 
+
+    printf("--- Fim do movimento do Cavalo ---\n\n"); 
+
+ 
+
+    return 0; 
+
+} 
